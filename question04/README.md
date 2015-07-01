@@ -6,5 +6,5 @@ Source: http://www.ardendertat.com/2011/09/27/programming-interview-questions-4-
 
 ## Solution
 
-Brute force: 
-Optimal: 
+Brute force: O(n^2) 
+Optimal: O(n)
