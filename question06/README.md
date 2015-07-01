@@ -14,4 +14,4 @@ Source: http://www.ardendertat.com/2011/10/10/programming-interview-questions-6-
 ## Solution
 
 Brute force:
-Optimal:
+Optimal: O(NM)

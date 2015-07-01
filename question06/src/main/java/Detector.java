@@ -1,4 +1,9 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class Detector {
+    private Set<String> invalid = new HashSet<>();
+
     public boolean isShuffle(String str1, String str2, String shuffle) {
         if (shuffle.length() != (str1.length() + str2.length())) {
             return false;
@@ -12,6 +17,10 @@ public class Detector {
             return true;
         }
 
+        if (invalid.contains(str1 + "/" + str2)) { // TEMP
+            return false;
+        }
+
         if (!str1.isEmpty() && shuffle.charAt(0) == str1.charAt(0)) {
             if (_isShuffle(str1.substring(1), str2, shuffle.substring(1))) {
                 return true;
@@ -23,6 +32,8 @@ public class Detector {
                 return true;
             }
         }
+
+        invalid.add(str1 + "/" + str2);
 
         return false;
     }

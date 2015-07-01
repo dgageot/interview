@@ -1,4 +1,3 @@
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -28,6 +27,20 @@ public class DetectorTest {
     }
 
     @Test
+    public void emptyLeft() {
+        boolean isShuffle = detector.isShuffle("", "abc", "abc");
+
+        assertThat(isShuffle).isTrue();
+    }
+
+    @Test
+    public void emptyRight() {
+        boolean isShuffle = detector.isShuffle("abc", "", "abc");
+
+        assertThat(isShuffle).isTrue();
+    }
+
+    @Test
     public void long_sample() {
         boolean isShuffle = detector.isShuffle(
             "aaaaaaaaaaaaaaaaaaaaaaaaab",
@@ -38,7 +51,6 @@ public class DetectorTest {
     }
 
     @Test
-    @Ignore
     public void very_long_sample() {
         boolean isShuffle = detector.isShuffle(
             "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab",
