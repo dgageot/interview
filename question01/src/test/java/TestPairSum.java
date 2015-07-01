@@ -36,4 +36,13 @@ public class TestPairSum {
 
         assertThat(pairs).containsOnly(new int[]{-1, 5});
     }
+
+    @Test
+    public void unsorted_array() {
+        PairSum pairSum = new PairSum(10, 3, -1, -2, 4, 5, 6, 7, 8, 9);
+
+        List<int[]> pairs = pairSum.get(4);
+
+        assertThat(pairs).containsOnly(new int[]{-1, 5}, new int[]{-2, 6});
+    }
 }
