@@ -1,0 +1,14 @@
+import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class IntArrayTest {
+    @Test
+    public void test() {
+        IntArray intArray = new IntArray(1, 4, 5, -5, 7, 99, 5, 9, -1, 100, 3);
+
+        long largestContinuousSum = intArray.largestContinuousSum();
+
+        assertThat(largestContinuousSum).isEqualTo(120);
+    }
+}
