@@ -1,13 +1,24 @@
 public class IntArray {
-    public IntArray(int... values) {
+    private final int[] values;
 
+    public IntArray(int... values) {
+        this.values = values;
     }
 
     public int findMissing(int... shuffled) {
-        if (shuffled[shuffled.length - 1] == 5) {
-            return 9;
+        long sumValues = sum(values);
+        long sumShuffled = sum(shuffled);
+
+        return (int) (sumValues - sumShuffled);
+    }
+
+    private long sum(int[] values) {
+        long sum = 0;
+
+        for (int value : values) {
+            sum += value;
         }
 
-        return 5;
+        return sum;
     }
 }
