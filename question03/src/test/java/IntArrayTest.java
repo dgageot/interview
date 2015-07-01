@@ -11,4 +11,13 @@ public class IntArrayTest {
 
         assertThat(largestContinuousSum).isEqualTo(120);
     }
+
+    @Test
+    public void test_simple() {
+        IntArray intArray = new IntArray(100, -1, 200);
+
+        long largestContinuousSum = intArray.largestContinuousSum();
+
+        assertThat(largestContinuousSum).isEqualTo(200);
+    }
 }
