@@ -1,19 +1,22 @@
-import java.util.List;
-
 public class BinarySearchTreeChecker {
     public boolean isValid(Node tree) {
-        List<Integer> values = tree.inOrder();
-
-        return isSorted(values);
+        return isValid(tree, new Integer[1]);
     }
 
-    private boolean isSorted(List<Integer> values) {
-        if (values.isEmpty()) {
-            return true;
+    private static boolean isValid(Node tree, Integer[] last) {
+        if (tree.left != null) {
+            if (!isValid(tree.left, last)) {
+                return false;
+            }
         }
 
-        for (int i = 1; i < values.size(); i++) {
-            if (values.get(i) < values.get(i - 1)) {
+        if ((last[0] != null) && tree.value < last[0]) {
+            return false;
+        }
+        last[0] = tree.value;
+
+        if (tree.right != null) {
+            if (!isValid(tree.right, last)) {
                 return false;
             }
         }
