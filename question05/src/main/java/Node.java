@@ -28,6 +28,6 @@ public class Node {
     }
 
     public static Node remove(Node head, int valueToRemove) {
-        return null;
+        return head;
     }
 }

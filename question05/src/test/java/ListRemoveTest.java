@@ -11,4 +11,13 @@ public class ListRemoveTest {
 
         assertThat(Node.toList(updated)).isEmpty();
     }
+
+    @Test
+    public void identity() {
+        Node head = new Node(10);
+
+        Node updated = Node.remove(head, 5);
+
+        assertThat(Node.toList(updated)).containsExactly(10);
+    }
 }
