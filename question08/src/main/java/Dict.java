@@ -1,16 +1,15 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Dict {
     private Set<String> words;
+    private Map<String, List<String>> neighbours;
 
     private Dict() {
         this.words = new HashSet<>();
+        this.neighbours = new HashMap<>();
     }
 
     private void add(String word) {
@@ -26,7 +25,15 @@ public class Dict {
             throw new IllegalStateException(e);
         }
 
+        dict.computeNeighbours();
+
         return dict;
+    }
+
+    private void computeNeighbours() {
+        for (String word : words) {
+            neighbours.put(word, permutations(word));
+        }
     }
 
     public boolean test(String word) {
@@ -63,5 +70,16 @@ public class Dict {
         }
 
         return words;
+    }
+
+    public List<String> path(String source, String target) {
+        List<String> path = new ArrayList<>();
+
+        if (neighbours.get(source).contains(target)) {
+            path.add(source);
+            path.add(target);
+        }
+
+        return path;
     }
 }
