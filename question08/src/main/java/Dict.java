@@ -73,13 +73,34 @@ public class Dict {
     }
 
     public List<String> path(String source, String target) {
-        List<String> path = new ArrayList<>();
+        Set<String> visited = new HashSet<>();
+        visited.add(source);
 
-        if (neighbours.get(source).contains(target)) {
-            path.add(source);
-            path.add(target);
+        Deque<List<String>> queue = new LinkedList<>();
+        List<String> path = new ArrayList<>();
+        path.add(source);
+        queue.add(path);
+
+        while (!queue.isEmpty()) {
+            List<String> currentPath = queue.removeFirst();
+            String word = currentPath.get(currentPath.size() - 1);
+            if (word.equals(target)) {
+                return currentPath;
+            }
+
+            List<String> wordNeighbours = neighbours.get(word);
+            if (wordNeighbours != null) {
+                for (String neighbour : wordNeighbours) {
+                    if (visited.add(neighbour)) {
+                        List<String> nextPath = new ArrayList<>();
+                        nextPath.addAll(currentPath);
+                        nextPath.add(neighbour);
+                        queue.add(nextPath);
+                    }
+                }
+            }
         }
 
-        return path;
+        return Collections.emptyList();
     }
 }
