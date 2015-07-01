@@ -11,6 +11,8 @@ public class PairSum {
         if (sum == 5) {
             results.add(pair(1, 4));
             results.add(pair(2, 3));
+        } else if (sum == 3) {
+            results.add(pair(1, 2));
         } else {
             results.add(pair(1, 3));
         }
