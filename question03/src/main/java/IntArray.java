@@ -6,14 +6,22 @@ public class IntArray {
     }
 
     public long largestContinuousSum() {
-        if (values[values.length - 1] == 200) {
-            return 200L;
+        long max = Long.MIN_VALUE;
+
+        for (int i = 0; i < values.length; i++) {
+            int current = 0;
+            for (int j = i; j < values.length; j++) {
+                current += current + values[j];
+                if (current > max) {
+                    max = current;
+                }
+
+                if (current < 0) {
+                    current = 0;
+                }
+            }
         }
 
-        if (values[values.length - 1] == -1) {
-            return -1L;
-        }
-
-        return 120L;
+        return max;
     }
 }
