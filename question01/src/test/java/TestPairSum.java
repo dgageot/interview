@@ -27,4 +27,13 @@ public class TestPairSum {
 
         assertThat(pairs).containsOnly(new int[]{1, 3});
     }
+
+    @Test
+    public void negative_values() {
+        PairSum pairSum = new PairSum(-1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        List<int[]> pairs = pairSum.get(4);
+
+        assertThat(pairs).containsOnly(new int[]{-1, 5});
+    }
 }
