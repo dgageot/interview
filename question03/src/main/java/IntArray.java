@@ -8,18 +8,12 @@ public class IntArray {
     public long largestContinuousSum() {
         long max = Long.MIN_VALUE;
 
-        for (int i = 0; i < values.length; i++) {
-            int current = 0;
-            for (int j = i; j < values.length; j++) {
-                current += current + values[j];
-                if (current > max) {
-                    max = current;
-                }
+        int current = 0;
+        for (int value : values) {
+            current += value;
 
-                if (current < 0) {
-                    current = 0;
-                }
-            }
+            max = Math.max(max, current);
+            current = Math.max(current, 0);
         }
 
         return max;
