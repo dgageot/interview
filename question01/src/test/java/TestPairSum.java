@@ -45,4 +45,13 @@ public class TestPairSum {
 
         assertThat(pairs).containsOnly(new int[]{-1, 5}, new int[]{-2, 6});
     }
+
+    @Test
+    public void duplicate_values() {
+        PairSum pairSum = new PairSum(10, 3, -1, -2, 4, 4, 5, 6, 7, 8, 9);
+
+        List<int[]> pairs = pairSum.get(8);
+
+        assertThat(pairs).containsOnly(new int[]{4, 4}, new int[]{3, 5}, new int[]{-1, 9}, new int[]{10, -2});
+    }
 }
