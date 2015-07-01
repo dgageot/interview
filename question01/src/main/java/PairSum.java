@@ -18,15 +18,11 @@ public class PairSum {
                 int second = values[j];
 
                 if (first + second == sum) {
-                    results.add(pair(first, second));
+                    results.add(new int[]{first, second});
                 }
             }
         }
 
         return results;
-    }
-
-    private static int[] pair(int first, int second) {
-        return new int[]{first, second};
     }
 }
