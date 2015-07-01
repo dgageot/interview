@@ -7,7 +7,11 @@ public class BinarySearchTreeCheckerTest {
 
     @Test
     public void invalid() {
-        Node tree = new Node(3, new Node(2, new Node(1, null, null), new Node(4, null, null)), new Node(5, null, null));
+        Node tree = new Node(3,
+            new Node(2,
+                new Node(1),
+                new Node(4)),
+            new Node(5));
 
         boolean valid = checker.isValid(tree);
 
@@ -16,7 +20,11 @@ public class BinarySearchTreeCheckerTest {
 
     @Test
     public void valid() {
-        Node tree = new Node(2, new Node(4, new Node(1, null, null), new Node(3, null, null)), new Node(5, null, null));
+        Node tree = new Node(4,
+            new Node(2,
+                new Node(1),
+                new Node(3)),
+            new Node(5));
 
         boolean valid = checker.isValid(tree);
 
