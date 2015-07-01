@@ -6,3 +6,6 @@ Our program will be called multiple times with different rectangular regions fro
 Source: http://www.ardendertat.com/2011/09/20/programming-interview-questions-2-matrix-region-sum/
 
 ## Solution
+
+Brute force: 
+Optimal:

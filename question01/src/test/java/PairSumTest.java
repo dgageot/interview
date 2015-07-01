@@ -4,7 +4,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TestPairSum {
+public class PairSumTest {
     PairSum pairSum = new PairSum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
     @Test
