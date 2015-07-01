@@ -6,15 +6,15 @@ public class IntArray {
     }
 
     public int findMissing(int... shuffled) {
-        long sum = 0;
+        int missing = 0;
 
         for (int value : values) {
-            sum += value;
+            missing = missing ^ value;
         }
         for (int value : shuffled) {
-            sum -= value;
+            missing = missing ^ value;
         }
 
-        return (int) sum;
+        return missing;
     }
 }
