@@ -4,6 +4,10 @@ public class Detector {
             return false;
         }
 
+        if (shuffle.length() == 0) {
+            return true;
+        }
+
         return true;
     }
 }

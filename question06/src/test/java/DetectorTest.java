@@ -18,4 +18,11 @@ public class DetectorTest {
 
         assertThat(isShuffle).isFalse();
     }
+
+    @Test
+    public void empty() {
+        boolean isShuffle = detector.isShuffle("", "", "");
+
+        assertThat(isShuffle).isTrue();
+    }
 }
