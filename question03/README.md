@@ -6,5 +6,5 @@ Source: http://www.ardendertat.com/2011/09/24/programming-interview-questions-3-
 
 ## Solution
 
-Brute force: 
+Brute force: O(N^2)
 Optimal: 
