@@ -1,3 +1,4 @@
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,6 +23,27 @@ public class DetectorTest {
     @Test
     public void empty() {
         boolean isShuffle = detector.isShuffle("", "", "");
+
+        assertThat(isShuffle).isTrue();
+    }
+
+    @Test
+    public void long_sample() {
+        boolean isShuffle = detector.isShuffle(
+            "aaaaaaaaaaaaaaaaaaaaaaaaab",
+            "aaaaaaaaaaaaaaaaaaaaaaaaac",
+            "aaaaaaaaaaaaaaaaaaaaaaaaaaacaaaaaaaaaaaaaaaaaaaaaaab");
+
+        assertThat(isShuffle).isTrue();
+    }
+
+    @Test
+    @Ignore
+    public void very_long_sample() {
+        boolean isShuffle = detector.isShuffle(
+            "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab",
+            "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaac",
+            "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab");
 
         assertThat(isShuffle).isTrue();
     }
