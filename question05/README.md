@@ -6,5 +6,4 @@ Source: http://www.ardendertat.com/2011/09/29/programming-interview-questions-5-
 
 ## Solution
 
-Brute force: 
-Optimal: 
+Optimal: O(n)

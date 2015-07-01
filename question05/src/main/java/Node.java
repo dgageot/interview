@@ -28,6 +28,24 @@ public class Node {
     }
 
     public static Node remove(Node head, int valueToRemove) {
-        return head;
+        Node previous = null;
+        Node newHead = head;
+        Node next;
+
+        for (Node current = head; current != null; current = next) {
+            next = current.next;
+
+            if (current.value == valueToRemove) {
+                if (previous == null) {
+                    newHead = next;
+                } else {
+                    previous.next = next;
+                }
+            } else {
+                previous = current;
+            }
+        }
+
+        return newHead;
     }
 }
