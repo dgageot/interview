@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class PairSum {
     private final int[] values;
@@ -11,16 +13,16 @@ public class PairSum {
     public List<int[]> get(int sum) {
         List<int[]> results = new ArrayList<>();
 
-        for (int i = 0; i < values.length; i++) {
-            int first = values[i];
+        Set<Integer> seen = new HashSet<>();
 
-            for (int j = i + 1; j < values.length; j++) {
-                int second = values[j];
+        for (int value : values) {
+            int complement = sum - value;
 
-                if (first + second == sum) {
-                    results.add(new int[]{first, second});
-                }
+            if (seen.contains(complement)) {
+                results.add(new int[]{complement, value});
             }
+
+            seen.add(value);
         }
 
         return results;
