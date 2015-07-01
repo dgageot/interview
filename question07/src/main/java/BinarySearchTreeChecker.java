@@ -1,26 +1,23 @@
 public class BinarySearchTreeChecker {
     public boolean isValid(Node tree) {
-        return isValid(tree, new Integer[1]);
+        return isValid(tree, new Integer[]{Integer.MIN_VALUE});
     }
 
     private static boolean isValid(Node tree, Integer[] last) {
-        if (tree.left != null) {
-            if (!isValid(tree.left, last)) {
-                return false;
-            }
+        if (tree == null) {
+            return true;
         }
 
-        if ((last[0] != null) && tree.value < last[0]) {
+        if (!isValid(tree.left, last)) {
             return false;
         }
-        last[0] = tree.value;
 
-        if (tree.right != null) {
-            if (!isValid(tree.right, last)) {
-                return false;
-            }
+        if (tree.value < last[0]) {
+            return false;
         }
 
-        return true;
+        last[0] = tree.value;
+
+        return isValid(tree.right, last);
     }
 }
