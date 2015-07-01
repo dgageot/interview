@@ -20,4 +20,13 @@ public class IntArrayTest {
 
         assertThat(largestContinuousSum).isEqualTo(200);
     }
+
+    @Test
+    public void allNegative() {
+        IntArray intArray = new IntArray(-6, -2, -1);
+
+        long largestContinuousSum = intArray.largestContinuousSum();
+
+        assertThat(largestContinuousSum).isEqualTo(-1);
+    }
 }

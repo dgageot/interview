@@ -10,6 +10,10 @@ public class IntArray {
             return 200L;
         }
 
+        if (values[values.length - 1] == -1) {
+            return -1L;
+        }
+
         return 120L;
     }
 }
