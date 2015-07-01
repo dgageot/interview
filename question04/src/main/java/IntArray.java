@@ -6,19 +6,15 @@ public class IntArray {
     }
 
     public int findMissing(int... shuffled) {
-        long sumValues = sum(values);
-        long sumShuffled = sum(shuffled);
-
-        return (int) (sumValues - sumShuffled);
-    }
-
-    private long sum(int[] values) {
         long sum = 0;
 
         for (int value : values) {
             sum += value;
         }
+        for (int value : shuffled) {
+            sum -= value;
+        }
 
-        return sum;
+        return (int) sum;
     }
 }
