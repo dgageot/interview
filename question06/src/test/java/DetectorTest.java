@@ -11,4 +11,13 @@ public class DetectorTest {
 
         assertThat(isShuffle).isTrue();
     }
+
+    @Test
+    public void wrong_size() {
+        Detector detector = new Detector();
+
+        boolean isShuffle = detector.isShuffle("a", "b", "");
+
+        assertThat(isShuffle).isFalse();
+    }
 }
