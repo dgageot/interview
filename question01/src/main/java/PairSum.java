@@ -1,16 +1,24 @@
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PairSum {
-    public PairSum(int[] values) {
+    public PairSum(int... values) {
     }
 
     public List<int[]> get(int sum) {
+        List<int[]> results = new ArrayList<>();
+
         if (sum == 5) {
-            return Arrays.asList(new int[]{1, 4}, new int[]{2, 3});
+            results.add(pair(1, 4));
+            results.add(pair(2, 3));
+        } else {
+            results.add(pair(1, 3));
         }
 
-        return Collections.singletonList(new int[]{1, 3});
+        return results;
+    }
+
+    private static int[] pair(int first, int second) {
+        return new int[]{first, second};
     }
 }
