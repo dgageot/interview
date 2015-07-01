@@ -36,20 +36,16 @@ public class Dict {
     public List<String> permutations(String word) {
         List<String> words = new ArrayList<>();
 
-        // remove character
-        if (word.length() > 1) {
-            for (int i = 0; i < word.length(); i++) {
-                String changed = word.substring(0, i) + word.substring(i + 1);
-                if (test(changed)) {
-                    words.add(changed);
-                }
-            }
-        }
-
-        // change character
         for (int i = 0; i < word.length(); i++) {
+            // remove character
+            String changed = word.substring(0, i) + word.substring(i + 1);
+            if (test(changed)) {
+                words.add(changed);
+            }
+
+            // change character
             for (char c = 'a'; c <= 'z'; c++) {
-                String changed = word.substring(0, i) + c + word.substring(i + 1);
+                changed = word.substring(0, i) + c + word.substring(i + 1);
                 if (!changed.equals(word) && test(changed)) {
                     words.add(changed);
                 }
