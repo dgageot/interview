@@ -2,19 +2,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PairSum {
+    private final int[] values;
+
     public PairSum(int... values) {
+        this.values = values;
     }
 
     public List<int[]> get(int sum) {
         List<int[]> results = new ArrayList<>();
 
-        if (sum == 5) {
-            results.add(pair(1, 4));
-            results.add(pair(2, 3));
-        } else if (sum == 3) {
-            results.add(pair(1, 2));
-        } else {
-            results.add(pair(1, 3));
+        for (int i = 0; i < values.length; i++) {
+            int first = values[i];
+
+            for (int j = i + 1; j < values.length; j++) {
+                int second = values[j];
+
+                if (first + second == sum) {
+                    results.add(pair(first, second));
+                }
+            }
         }
 
         return results;
