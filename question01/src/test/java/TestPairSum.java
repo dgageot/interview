@@ -20,4 +20,11 @@ public class TestPairSum {
 
         assertThat(pairs).containsOnly(new int[]{1, 4}, new int[]{2, 3});
     }
+
+    @Test
+    public void use_distinct_values() {
+        List<int[]> pairs = pairSum.get(4);
+
+        assertThat(pairs).containsOnly(new int[]{1, 3});
+    }
 }
