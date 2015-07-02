@@ -5,17 +5,19 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CodeTest {
+    Permutations permutations = new Permutations();
+
     @Test
     public void single_char() {
-        List<String> permutation = new Permutations().of("a");
+        List<String> results = permutations.of("a");
 
-        assertThat(permutation).containsExactly("a");
+        assertThat(results).containsExactly("a");
     }
 
     @Test
     public void two_chars() {
-        List<String> permutation = new Permutations().of("ab");
+        List<String> results = permutations.of("ab");
 
-        assertThat(permutation).containsExactly("ab", "ba");
+        assertThat(results).containsExactly("ab", "ba");
     }
 }
