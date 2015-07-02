@@ -11,4 +11,11 @@ public class CodeTest {
 
         assertThat(permutation).containsExactly("a");
     }
+
+    @Test
+    public void two_chars() {
+        List<String> permutation = new Permutations().of("ab");
+
+        assertThat(permutation).containsExactly("ab", "ba");
+    }
 }
