@@ -1,11 +1,14 @@
+import java.util.Arrays;
+
 public class IntArray {
+    private final int[] values;
+
     public IntArray(int... values) {
+        this.values = values;
     }
 
     public int kLargest(int k) {
-        if (k == 5) {
-            return 4;
-        }
-        return 2;
+        Arrays.sort(values);
+        return values[k - 1];
     }
 }

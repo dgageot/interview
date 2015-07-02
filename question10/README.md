@@ -7,5 +7,5 @@ Source: http://www.ardendertat.com/2011/10/27/programming-interview-questions-10
 
 ## Solution
 
-Brute force: 
+Brute force: O(n.log(n))
 Optimal: 
