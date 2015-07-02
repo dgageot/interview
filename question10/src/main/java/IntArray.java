@@ -22,31 +22,28 @@ public class IntArray {
             int pivot = all.get(random.nextInt(all.size()));
 
             List<Integer> smaller = new ArrayList<>();
+            List<Integer> equal = new ArrayList<>();
             List<Integer> larger = new ArrayList<>();
-            boolean onlyPivot = true;
 
             for (int value : all) {
                 if (value < pivot) {
                     smaller.add(value);
-                } else {
+                } else if (value > pivot) {
                     larger.add(value);
+                } else {
+                    equal.add(value);
                 }
-                if (value != pivot) {
-                    onlyPivot = false;
-                }
-            }
-
-            if (onlyPivot) {
-                return pivot;
             }
 
             if ((previous + smaller.size()) == (k - 1)) {
                 return pivot;
-            } else if ((previous + smaller.size()) < (k - 1)) {
-                all = larger;
-                previous += smaller.size();
-            } else {
+            } else if ((previous + smaller.size()) > (k - 1)) {
                 all = smaller;
+            } else if ((previous + smaller.size() + equal.size()) > (k - 1)) {
+                return pivot;
+            } else {
+                all = larger;
+                previous += smaller.size() + equal.size();
             }
         }
 
