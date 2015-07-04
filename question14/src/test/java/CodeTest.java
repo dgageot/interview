@@ -15,6 +15,9 @@ public class CodeTest {
     @Test
     public void invalid() {
         assertThat(checkParentheses("(")).isFalse();
+        assertThat(checkParentheses("(]")).isFalse();
+        assertThat(checkParentheses("]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")).isFalse();
+        assertThat(checkParentheses("[[[}})")).isFalse();
     }
 
     @Test
@@ -22,5 +25,7 @@ public class CodeTest {
         assertThat(checkParentheses("()")).isTrue();
         assertThat(checkParentheses("{}")).isTrue();
         assertThat(checkParentheses("[]")).isTrue();
+        assertThat(checkParentheses("[[[[]]]((({{{}}})))]")).isTrue();
+        assertThat(checkParentheses("[][[[[]]]((({{{}}})))]")).isTrue();
     }
 }

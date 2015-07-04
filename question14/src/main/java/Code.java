@@ -1,3 +1,6 @@
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class Code {
     private final String expression;
 
@@ -6,12 +9,38 @@ public class Code {
     }
 
     public boolean checkParentheses() {
-        if (expression.isEmpty()) {
-            return true;
+        if (expression.length() % 2 != 0) {
+            return false;
         }
-        if (expression.length() == 2) {
-            return true;
+
+        Deque<Character> parentheses = new LinkedList<>();
+
+        for (int i = 0; i < expression.length(); i++) {
+            char c = expression.charAt(i);
+            switch (c) {
+                case '(':
+                case '[':
+                case '{':
+                    parentheses.add(c);
+                    break;
+                case ')':
+                    if (parentheses.removeLast() != '(') {
+                        return false;
+                    }
+                    break;
+                case ']':
+                    if (parentheses.removeLast() != '[') {
+                        return false;
+                    }
+                    break;
+                case '}':
+                    if (parentheses.removeLast() != '{') {
+                        return false;
+                    }
+                    break;
+            }
         }
-        return false;
+
+        return true;
     }
 }
