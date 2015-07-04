@@ -10,16 +10,11 @@ public class IntArray {
     public int median(int nbReceived) {
         int[] sorted = sort(values, nbReceived);
 
-        if (nbReceived == 1) {
-            return sorted[0];
+        if (nbReceived % 2 == 0) {
+            return (sorted[nbReceived / 2 - 1] + sorted[nbReceived / 2]) / 2;
+        } else {
+            return sorted[(nbReceived - 1) / 2];
         }
-        if (nbReceived == 2) {
-            return (sorted[0] + sorted[1]) / 2;
-        }
-        if (nbReceived == 3) {
-            return sorted[1];
-        }
-        return -1;
     }
 
     private static int[] sort(int[] values, int count) {
