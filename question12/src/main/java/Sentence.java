@@ -8,34 +8,39 @@ public class Sentence {
     public String reverseWords() {
         StringBuilder reversed = new StringBuilder();
 
-        String currentWord = "";
+        int wordStart = 0;
+        int wordLength = 0;
 
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
 
             if (c == ' ') {
-                if (currentWord.length() > 0) {
-                    appendReversed(currentWord, reversed);
-                    currentWord = "";
+                if (wordLength > 0) {
+                    appendReversed(wordStart, wordLength, reversed);
+                    wordStart = i + 1;
+                    wordLength = 0;
                 }
             } else {
-                currentWord += c;
+                if (wordLength == 0) {
+                    wordStart = i;
+                }
+                wordLength++;
             }
         }
 
-        if (currentWord.length() > 0) {
-            appendReversed(currentWord, reversed);
+        if (wordLength > 0) {
+            appendReversed(wordStart, wordLength, reversed);
         }
 
         return reversed.toString();
     }
 
-    private void appendReversed(String word, StringBuilder appendTo) {
+    private void appendReversed(int start, int length, StringBuilder appendTo) {
         if (appendTo.length() > 0) {
             appendTo.append(' ');
         }
-        for (int i = word.length() - 1; i >= 0; i--) {
-            appendTo.append(word.charAt(i));
+        for (int i = start + length - 1; i >= start; i--) {
+            appendTo.append(text.charAt(i));
         }
     }
 }
