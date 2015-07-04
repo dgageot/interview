@@ -3,6 +3,6 @@ public class Code {
     }
 
     public boolean checkParentheses() {
-        return false;
+        return true;
     }
 }
