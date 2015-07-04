@@ -4,11 +4,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class IntArrayTest {
     @Test
-    public void single() {
-        IntArray array = new IntArray(1);
+    public void simple_case() {
+        IntArray array = new IntArray(4, 6, 1);
 
-        int median = array.median(0);
-
-        assertThat(median).isEqualTo(1);
+        assertThat(array.median(0)).isEqualTo(4);
+        assertThat(array.median(1)).isEqualTo(5);
+        assertThat(array.median(2)).isEqualTo(6);
     }
 }
