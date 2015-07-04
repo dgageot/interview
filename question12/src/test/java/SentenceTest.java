@@ -3,21 +3,17 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SentenceTest {
+    private static String reverseWords(String text) {
+        return new Sentence(text).reverseWords();
+    }
+
     @Test
     public void single_word() {
-        Sentence sentence = new Sentence("hello");
-
-        String reversed = sentence.reverseWords();
-
-        assertThat(reversed).isEqualTo("olleh");
+        assertThat(reverseWords("hello")).isEqualTo("olleh");
     }
 
     @Test
     public void trim() {
-        Sentence sentence = new Sentence(" boy ");
-
-        String reversed = sentence.reverseWords();
-
-        assertThat(reversed).isEqualTo("yob");
+        assertThat(reverseWords(" boy ")).isEqualTo("yob");
     }
 }
