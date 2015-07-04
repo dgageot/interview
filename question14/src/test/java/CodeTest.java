@@ -9,4 +9,11 @@ public class CodeTest {
 
         assertThat(valid).isTrue();
     }
+
+    @Test
+    public void invalid() {
+        boolean valid = new Code("(").checkParentheses();
+
+        assertThat(valid).isFalse();
+    }
 }
