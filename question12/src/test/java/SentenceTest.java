@@ -11,4 +11,13 @@ public class SentenceTest {
 
         assertThat(reversed).isEqualTo("olleh");
     }
+
+    @Test
+    public void trim() {
+        Sentence sentence = new Sentence(" boy ");
+
+        String reversed = sentence.reverseWords();
+
+        assertThat(reversed).isEqualTo("yob");
+    }
 }
