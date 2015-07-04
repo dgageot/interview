@@ -3,17 +3,17 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CodeTest {
+    private static boolean checkParentheses(String expression) {
+        return new Code(expression).checkParentheses();
+    }
+
     @Test
     public void empty() {
-        boolean valid = new Code("").checkParentheses();
-
-        assertThat(valid).isTrue();
+        assertThat(checkParentheses("")).isTrue();
     }
 
     @Test
     public void invalid() {
-        boolean valid = new Code("(").checkParentheses();
-
-        assertThat(valid).isFalse();
+        assertThat(checkParentheses("(")).isFalse();
     }
 }
