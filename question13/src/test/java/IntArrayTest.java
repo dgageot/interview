@@ -9,6 +9,6 @@ public class IntArrayTest {
 
         assertThat(array.median(0)).isEqualTo(4);
         assertThat(array.median(1)).isEqualTo(5);
-        assertThat(array.median(2)).isEqualTo(6);
+        assertThat(array.median(2)).isEqualTo(4);
     }
 }
