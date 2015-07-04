@@ -20,5 +20,7 @@ public class SentenceTest {
     @Test
     public void two_words() {
         assertThat(reverseWords("hello world")).isEqualTo("olleh dlrow");
+        assertThat(reverseWords("hello  world")).isEqualTo("olleh dlrow");
+        assertThat(reverseWords(" hello  world ")).isEqualTo("olleh dlrow");
     }
 }
