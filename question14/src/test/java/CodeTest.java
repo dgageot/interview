@@ -16,4 +16,11 @@ public class CodeTest {
     public void invalid() {
         assertThat(checkParentheses("(")).isFalse();
     }
+
+    @Test
+    public void valid() {
+        assertThat(checkParentheses("()")).isTrue();
+        assertThat(checkParentheses("{}")).isTrue();
+        assertThat(checkParentheses("[]")).isTrue();
+    }
 }

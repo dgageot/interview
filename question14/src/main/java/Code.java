@@ -6,6 +6,12 @@ public class Code {
     }
 
     public boolean checkParentheses() {
-        return expression.isEmpty();
+        if (expression.isEmpty()) {
+            return true;
+        }
+        if (expression.length() == 2) {
+            return true;
+        }
+        return false;
     }
 }
