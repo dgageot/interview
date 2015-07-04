@@ -16,4 +16,9 @@ public class SentenceTest {
     public void trim() {
         assertThat(reverseWords(" boy ")).isEqualTo("yob");
     }
+
+    @Test
+    public void two_words() {
+        assertThat(reverseWords("hello world")).isEqualTo("olleh dlrow");
+    }
 }
