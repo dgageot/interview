@@ -6,9 +6,14 @@ public class Sentence {
     }
 
     public String reverseWords() {
-        if (text.contains("boy")) {
-            return "yob";
+        String cleanText = text.trim();
+
+        StringBuilder reversed = new StringBuilder();
+
+        for (int i = cleanText.length() - 1; i >= 0; i--) {
+            reversed.append(cleanText.charAt(i));
         }
-        return "olleh";
+
+        return reversed.toString();
     }
 }
