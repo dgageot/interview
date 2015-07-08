@@ -14,6 +14,6 @@ public class Node {
   }
 
   public String levelOrderPrint() {
-    return "1\n";
+    return value + "\n";
   }
 }
