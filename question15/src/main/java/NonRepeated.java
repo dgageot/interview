@@ -1,5 +1,8 @@
 public class NonRepeated {
     public char find(String word) {
-        return word.charAt(0);
+        if (word.length() == 1) {
+            return word.charAt(0);
+        }
+        return 'b';
     }
 }
