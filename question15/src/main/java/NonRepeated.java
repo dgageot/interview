@@ -1,8 +1,30 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class NonRepeated {
     public char find(String word) {
-        if (word.length() == 1) {
-            return word.charAt(0);
+        Map<Character, Integer> seen = new HashMap<>();
+
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+
+            Integer previous = seen.get(c);
+            if (previous == null) {
+                seen.put(c, 1);
+            } else {
+                seen.put(c, previous + 1);
+            }
         }
-        return 'b';
+
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+
+            Integer count = seen.get(c);
+            if (count == 1) {
+                return c;
+            }
+        }
+
+        return '?';
     }
 }

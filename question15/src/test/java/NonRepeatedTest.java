@@ -13,6 +13,12 @@ public class NonRepeatedTest {
 
     @Test
     public void nonRepeating() {
-        assertThat(nonRepeated.find("abb")).isEqualTo('b');
+        assertThat(nonRepeated.find("aab")).isEqualTo('b');
+        assertThat(nonRepeated.find("aacbb")).isEqualTo('c');
+    }
+
+    @Test
+    public void notFound() {
+        assertThat(nonRepeated.find("aa")).isEqualTo('?');
     }
 }
