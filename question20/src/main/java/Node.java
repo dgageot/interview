@@ -1,5 +1,7 @@
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.util.Collections.singletonList;
 
 public class Node {
   private int value;
@@ -19,17 +21,19 @@ public class Node {
   public String levelOrderPrint() {
     StringBuilder print = new StringBuilder();
 
-    Deque<Node> current = new LinkedList<>();
-    current.add(this);
-    Deque<Node> next = new LinkedList<>();
+    List<Node> current = singletonList(this);
+    List<Node> next = new ArrayList<>();
 
-    while (!current.isEmpty()) {
-      String level = "";
+    do {
+      boolean firstInLevel = true;
+
       for (Node node : current) {
-        if (!level.isEmpty()) {
-          level += " ";
+        if (firstInLevel) {
+          firstInLevel = false;
+        } else {
+          print.append(' ');
         }
-        level += node.value;
+        print.append(node.value);
 
         if (node.left != null) {
           next.add(node.left);
@@ -38,13 +42,11 @@ public class Node {
           next.add(node.right);
         }
       }
-      level += "\n";
-
-      print.append(level);
+      print.append('\n');
 
       current = next;
-      next = new LinkedList<>();
-    }
+      next = new ArrayList<>();
+    } while (!current.isEmpty());
 
     return print.toString();
   }
