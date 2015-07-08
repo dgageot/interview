@@ -19,7 +19,10 @@ public class Node {
     print.append(value).append("\n");
 
     if (left != null) {
-      print.append("2 3\n");
+      print.append(left.value).append(" ");
+    }
+    if (right != null) {
+      print.append(right.value).append("\n");
     }
 
     return print.toString();

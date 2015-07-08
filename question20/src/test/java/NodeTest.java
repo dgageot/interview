@@ -12,5 +12,6 @@ public class NodeTest {
   @Test
   public void two_levels() {
     assertThat(new Node(1, new Node(2), new Node(3)).levelOrderPrint()).isEqualTo("1\n2 3\n");
+    assertThat(new Node(1, new Node(4), new Node(5)).levelOrderPrint()).isEqualTo("1\n4 5\n");
   }
 }
