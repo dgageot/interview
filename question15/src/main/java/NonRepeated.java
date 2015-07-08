@@ -2,29 +2,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class NonRepeated {
-    public char find(String word) {
-        Map<Character, Integer> seen = new HashMap<>();
+    public int find(String word) {
+        Map<Integer, Integer> seen = new HashMap<>();
 
-        for (int i = 0; i < word.length(); i++) {
-            char c = word.charAt(i);
+        word.chars().forEach(c -> seen.put(c, seen.getOrDefault(c, 0) + 1));
 
-            Integer previous = seen.get(c);
-            if (previous == null) {
-                seen.put(c, 1);
-            } else {
-                seen.put(c, previous + 1);
-            }
-        }
-
-        for (int i = 0; i < word.length(); i++) {
-            char c = word.charAt(i);
-
-            Integer count = seen.get(c);
-            if (count == 1) {
-                return c;
-            }
-        }
-
-        return '?';
+        return word.chars().filter(c -> seen.get(c) == 1).findFirst().orElse('?');
     }
 }
