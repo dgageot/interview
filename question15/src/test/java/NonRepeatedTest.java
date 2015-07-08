@@ -3,10 +3,11 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class NonRepeatedTest {
-    @Test
-    public void test() {
-        char nonRepeated = new NonRepeated().find("a");
+    NonRepeated nonRepeated = new NonRepeated();
 
-        assertThat(nonRepeated).isEqualTo('a');
+    @Test
+    public void singleCharacter() {
+        assertThat(nonRepeated.find("a")).isEqualTo('a');
+        assertThat(nonRepeated.find("b")).isEqualTo('b');
     }
 }
