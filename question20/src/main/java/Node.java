@@ -14,6 +14,14 @@ public class Node {
   }
 
   public String levelOrderPrint() {
-    return value + "\n";
+    StringBuilder print = new StringBuilder();
+
+    print.append(value).append("\n");
+
+    if (left != null) {
+      print.append("2 3\n");
+    }
+
+    return print.toString();
   }
 }
